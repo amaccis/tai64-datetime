@@ -16,7 +16,7 @@ class Tai64 {
     private const ALLOWED_SINCE = '1972-01-01';
     private const ALLOWED_BIGGER_THAN = "4611686019134860333";
 
-    private const DATE_FORMAT_YYYYMMDD = 'Y-m-d';
+    public const DATE_FORMAT_YYYYMMDD = 'Y-m-d';
     public const DATE_FORMAT_YYYYMMDDHHIISS = 'Y-m-d H:i:s';
     public const DATE_FORMAT_SECONDS = 'U';
     public const DATE_FORMAT_TAI64 = 'TAI64';
