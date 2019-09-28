@@ -2,6 +2,15 @@
 
 A PHP library that extends DateTime class, in order to allow to handle Tai64.
 
+## Installation
+
+Package is available on [Packagist](http://packagist.org/packages/amaccis/tai64-datetime), 
+you can install it using [Composer](http://getcomposer.org).
+
+```shell
+composer require amaccis/tai64-datetime
+```
+
 ## Basic usage
 
 If you feel to need a basic knowledge of TAI, TAI64, TAI64N and TAI64NA, [read this](https://cr.yp.to/libtai/tai64.html).
@@ -11,6 +20,8 @@ TAI64N and TAI64NA are not currently managed.
 ### Convert TAI64 into UTC
 
 ```php
+    use Amaccis/Tai64DateTime/DateTime
+
     $dateTime = DateTime("400000002a2b2c2d");
     $utc = $dateTime->format('Y-m-d H:i:s');
     var_dump($utc); // 1992-06-02 08:06:43       
@@ -19,6 +30,8 @@ TAI64N and TAI64NA are not currently managed.
 ### Convert UTC into TAI64
 
 ```php
+    use Amaccis/Tai64DateTime/DateTime
+
     $dateTime = new DateTime("1992-06-02 08:06:43");
     $hexString = $dateTime->format("TAI64");
     var_dump($hexString); // 400000002a2b2c2d'
