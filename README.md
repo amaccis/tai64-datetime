@@ -1,13 +1,6 @@
 # TAI64-DateTime
 
 [![PHP Version](https://img.shields.io/badge/php-%5E7.1-blue.svg)](https://img.shields.io/badge/php-%5E7.1-blue.svg)
-[![Stable release][Last stable image]][Packagist link]
-[![Unstable release][Last unstable image]][Packagist link]
-
-[![Build status][Master build image]][Master build link]
-[![Coverage Status][Master coverage image]][Master scrutinizer link]
-[![Scrutinizer][Master scrutinizer image]][Master scrutinizer link]
-[![SL Insight][SL Insight image]][SL Insight link]
 
 A PHP library that extends DateTime class, in order to allow to handle Tai64.
 
