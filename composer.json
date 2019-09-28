@@ -1,0 +1,33 @@
+{
+    "name": "amaccis/tai64-datetime",
+    "type": "library",
+    "description": "An extension of the PHP native DateTime which handles Tai64",
+    "keywords": [
+        "TAI64",
+        "TAI64N",
+        "TAI64NA"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Andrea Maccis",
+            "email": "andrea.maccis@gmail.com"
+        }
+    ],
+    "require": {
+		"php": "^7.2"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amaccis\\Tai64DateTime\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Amaccis\\Tai64DateTime\\": "tests/"
+        }
+    }
+}
