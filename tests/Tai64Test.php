@@ -5,6 +5,7 @@
 
 namespace Amaccis\Tai64DateTime;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,6 +32,17 @@ class Tai64Test extends TestCase
 
     }
 
+
+    public function testExternalTAI64FormatToStringDateTimeFailsForNotAllowedSecondsValue() : void
+    {
+
+        $this->expectException(InvalidArgumentException::class);
+        $hexString = "400000002a2b2c2c";
+        Tai64::externalTAI64FormatToStringDateTime($hexString);
+
+    }
+
+
     /**
      * @throws \Exception
      */
@@ -48,12 +60,29 @@ class Tai64Test extends TestCase
 
     }
 
+    /**
+     * @throws \Exception
+     */
+    public function testDateTimeToExternalTAI64FormatFailsForNotAllowedDateValue() : void
+    {
+
+        $this->expectException(InvalidArgumentException::class);
+        $dateTime = new DateTime("1971-12-31 08:06:43");
+        Tai64::dateTimeToExternalTAI64Format($dateTime);
+
+    }
+
+    /**
+     * @throws \Exception
+     */
     public function testAdjust() : void
     {
 
-        $externalTAI64Format = "707472429";
-        $adjustedDate = Tai64::adjust(DateTime::createFromFormat(Tai64::DATE_FORMAT_SECONDS, $externalTAI64Format));
+        $adjustedDate = Tai64::adjust(new DateTime("1992-06-02 08:07:09"));
         $this->assertSame("1992-06-02 08:06:43", $adjustedDate->format(Tai64::DATE_FORMAT_YYYYMMDDHHIISS));
+
+        $adjustedDate = Tai64::adjust(new DateTime("1981-07-01 10:20:31"));
+        $this->assertSame("1981-07-01 10:20:11", $adjustedDate->format(Tai64::DATE_FORMAT_YYYYMMDDHHIISS));
 
     }
 
