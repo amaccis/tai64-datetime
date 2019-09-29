@@ -111,7 +111,7 @@ class Tai64 {
             $leapSeconds[$dateToAdjust] = '0';
             ksort($leapSeconds);
             $keys = array_keys($leapSeconds);
-            $key = (array_search($dateTimeToAdjust->format(self::DATE_FORMAT_YYYYMMDD), $keys,true) - 1);
+            $key = (array_search($dateTimeToAdjust->format(self::DATE_FORMAT_YYYYMMDD), $keys, true) - 1);
             $leapSecondsValue = $leapSeconds[$keys[$key]];
         } else {
             $leapSecondsValue = $leapSeconds[$dateToAdjust];

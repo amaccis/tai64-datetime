@@ -2,6 +2,9 @@
 
 [![PHP Version](https://img.shields.io/badge/php-%5E7.1-blue.svg)](https://img.shields.io/badge/php-%5E7.1-blue.svg)
 
+[![Build Status](https://travis-ci.org/amaccis/tai64-datetime.svg?branch=master)](https://travis-ci.org/amaccis/tai64-datetime)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/amaccis/tai64-datetime/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/amaccis/tai64-datetime/?branch=master)
+
 A PHP library that extends DateTime class, in order to allow to handle Tai64.
 
 ## Installation
