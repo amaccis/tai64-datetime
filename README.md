@@ -2,8 +2,6 @@
 
 [![PHP Version](https://img.shields.io/badge/php-%5E7.1-blue.svg)](https://img.shields.io/badge/php-%5E7.1-blue.svg)
 
-[![Build status][Master build image]][Master build link]
-
 A PHP library that extends DateTime class, in order to allow to handle Tai64.
 
 ## Installation
