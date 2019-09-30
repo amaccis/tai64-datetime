@@ -73,17 +73,33 @@ class Tai64Test extends TestCase
     }
 
     /**
+     * @dataProvider adjustProvider
      * @throws \Exception
      */
-    public function testAdjust() : void
+    public function testAdjust(string $expected, string $adjusted) : void
     {
 
-        $adjustedDate = Tai64::adjust(new DateTime("1992-06-02 08:07:09"));
-        $this->assertSame("1992-06-02 08:06:43", $adjustedDate->format(Tai64::DATE_FORMAT_YYYYMMDDHHIISS));
-
-        $adjustedDate = Tai64::adjust(new DateTime("1981-07-01 10:20:31"));
-        $this->assertSame("1981-07-01 10:20:11", $adjustedDate->format(Tai64::DATE_FORMAT_YYYYMMDDHHIISS));
+        $adjustedDate = Tai64::adjust(new DateTime($adjusted));
+        $this->assertSame($expected, $adjustedDate->format(Tai64::DATE_FORMAT_YYYYMMDDHHIISS));
 
     }
+
+    public function adjustProvider() : array
+    {
+
+        return [
+            [
+                '1992-06-02 08:06:43',
+                '1992-06-02 08:07:09'
+            ],
+            [
+                '1981-07-01 10:20:11',
+                '1981-07-01 10:20:31'
+            ]
+        ];
+
+    }
+
+
 
 }
