@@ -1,6 +1,7 @@
 <?php
 
 namespace Amaccis\Tai64;
+
 interface Tai64ToolsInterface
 {
 
