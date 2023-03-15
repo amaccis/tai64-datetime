@@ -19,7 +19,7 @@ class Tai64Tools implements Tai64ToolsInterface {
 
         $this->tai64LabelMinimumValue = 0;
         $this->tai64LabelEpoch = 2**62;
-        $this->tai64LabelMaximumValue = PHP_INT_MAX;    // (2^63)-1
+        $this->tai64LabelMaximumValue = PHP_INT_MAX;    // is equal to (2^63)−1 for 64-bit systems
         // source: https://maia.usno.navy.mil/ser7/tai-utc.dat
         $this->leapSeconds = [
             '1972-01-01' => '10.0',
@@ -66,16 +66,12 @@ class Tai64Tools implements Tai64ToolsInterface {
             throw new \InvalidArgumentException('A TAI64 label must be an hexadecimal string');
         }
         $second = intval(hexdec($tai64Label));
-        if ($second < $this->tai64LabelMinimumValue) {
-            throw new \InvalidArgumentException('No negative values allowed for a TAI64 label, only integers between 0 and 2^64');
-        } elseif ($second < $this->tai64LabelEpoch) {
+        if ($second < $this->tai64LabelEpoch) {
             $taiSecond = $this->tai64LabelEpoch - $second;
             return \DateTime::createFromFormat('U', -($taiSecond));
-        } elseif ($second <= $this->tai64LabelMaximumValue) {
+        } else {
             $taiSecond = $second - $this->tai64LabelEpoch;
             return \DateTime::createFromFormat('U', $taiSecond);
-        } else {
-            throw new \InvalidArgumentException('No values larger than 2^63 for a TAI64 label allowed, the values larger thank 2^63 are reserved for future extensions');
         }
 
     }

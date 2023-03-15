@@ -34,12 +34,13 @@ class Tai64ToolsTest extends TestCase
 
     }
 
-    public function testTai64LabelToTaiDateTimeForWrongTai64LabelValue() : void
+    public function testTai64LabelToTaiDateTimeForWrongTai64LabelValue(): void
     {
+
         $this->expectException(InvalidArgumentException::class);
         $this->tai64Tools->tai64LabelToTaiDateTime("wrongTai64Label");
-    }
 
+    }
 
     /**
      * @dataProvider commonProvider
@@ -104,6 +105,11 @@ class Tai64ToolsTest extends TestCase
                 '4000000000000000',     // TAI64 label
                 '1970-01-01 00:00:00',  // TAI
                 '1970-01-01 00:00:00'   // UTC
+            ],
+            [
+                '4000000003c2670a',     // TAI64 label
+                '1972-01-01 00:00:10',  // TAI
+                '1972-01-01 00:00:00'   // UTC
             ],
             [
                 '400000002a2b2c2d',     // TAI64 label
