@@ -6,20 +6,14 @@ use Amaccis\Tai64\Enum\TimeStandard;
 
 class Tai64Tools implements Tai64ToolsInterface {
 
-    public readonly int $tai64LabelMinimumValue;
-
     public readonly int $tai64LabelEpoch;
-
-    public readonly int $tai64LabelMaximumValue;
 
     public readonly array $leapSeconds;
 
     public function __construct()
     {
 
-        $this->tai64LabelMinimumValue = 0;
         $this->tai64LabelEpoch = 2**62;
-        $this->tai64LabelMaximumValue = PHP_INT_MAX;    // is equal to (2^63)−1 for 64-bit systems
         // source: https://maia.usno.navy.mil/ser7/tai-utc.dat
         $this->leapSeconds = [
             '1972-01-01' => '10.0',
